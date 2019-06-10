@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>动感宣传</title>
+
+    <script>
+        (function (doc, win) {
+            var htmlFont = function () {
+                var docEl = doc.documentElement,
+                    l = docEl.clientWidth,
+                    f;
+                f = l / 15;
+                l > 750 ? docEl.style.fontSize = 50 + "px" : docEl.style.fontSize = f + "px"
+            };
+            htmlFont();
+            win.addEventListener("resize", htmlFont, false)
+        })(document, window)
+    </script>
+
+    <style>
+        * {
+            padding: 0px;
+            margin: 0px;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            width: 100%;
+            height: 100%;
+        }
+
+        body {
+            -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+            font-family: sans-serif;
+            font-size: 0.24rem;
+            background-color: #fff;
+            position: relative;
+        }
+
+        table {
+            border-spacing: 0px;
+            border-collapse: collapse;
+        }
+
+        td,
+        th {
+            overflow-wrap: break-word;
+        }
+
+        img,
+        fieldset {
+            border: none;
+            display: block;
+        }
+
+        img {
+            width: 100%;
+        }
+
+        input,
+        select,
+        textarea {
+            vertical-align: middle;
+            border: 0px none;
+            display: block;
+            outline: none;
+        }
+
+        header,
+        nav,
+        section,
+        footer {
+            display: block;
+        }
+
+        a {
+            text-decoration: none;
+            display: block;
+            color: rgb(49, 49, 49);
+        }
+
+        input[type="submit"],
+        input[type="reset"],
+        input[type="search"],
+        input[type="button"],
+        button,
+        textarea {
+            -webkit-appearance: none;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        strong {
+            font-weight: normal;
+        }
+
+        em,
+        var {
+            font-style: normal;
+        }
+
+        #out {
+            width: 15rem;
+            margin: 0 auto;
+            height: 100%;
+            position: relative;
+            overflow: hidden;
+
+        }
+
+        .fin {
+            font-size: .52rem;
+            position: absolute;
+            right: .6rem;
+            top: .6rem;
+        }
+
+
+        #bigimg {
+            width: 6.6rem;
+            background-image: url(images/1.jpg);
+            background-size: cover;
+            margin: .4rem auto 0;
+
+
+        }
+
+        .mina {
+            height: 90%;
+            width: 15rem;
+            background-color: #181818;
+            position: absolute;
+            top: 25%;
+            left: 0;
+            transform: translate3d(0, 0, 0);
+            -webkit-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+
+        }
+
+        img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .y_scroll {
+            width: 15rem;
+            padding: .5rem 0;
+            position: absolute;
+
+            left: 50%;
+            margin-left: -7.5rem;
+            bottom: 2.09rem;
+            overflow-x: scroll;
+            background-color: #181818;
+        }
+
+        .scroll {
+            width: 30.3rem;
+            height: 2.31rem;
+        }
+
+        .small {
+            width: 1.38rem;
+            height: 2.31rem;
+            float: left;
+            background-size: cover;
+            margin-left: .6rem;
+            display: inline-block;
+        }
+
+        .current {
+            border: 1px solid #f9de4a;
+        }
+
+        .duan {
+            width: 100%;
+            height: 2.1rem;
+            background-color: #1e1f22;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+        }
+
+        .duan img {
+            width: .64rem;
+            height: .64rem;
+            margin: .4rem auto 0;
+        }
+
+        .duan p {
+            color: #f9de4a;
+            font-size: .48rem;
+            text-align: center;
+            margin-top: .2rem;
+        }
+
+        .topbox {
+            height: 2.6rem;
+            display: flex;
+            padding-left: .3rem;
+            padding-top: 1.4rem;
+            height: 4rem;
+
+        }
+
+        .topbox > div {
+            background: #181818;
+            width: 4.2rem;
+            margin-left: .25rem;
+            position: relative;
+        }
+
+        .topbox > div img {
+            height: 2.6rem;
+            width: 1.45rem;
+            margin: 0 auto;
+        }
+
+        .topbox > div div {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            color: #fff;
+            font-size: .48rem;
+            opacity: .8;
+        }
+
+        .lala {
+            width: .88rem;
+            height: .86rem;
+            margin: 0 auto;
+            padding-top: .4rem;
+        }
+
+
+        .inputArea {
+            display: none;
+            width: 100%;
+            height: 100%;
+            position: fixed;
+            left: 0;
+            top: 0;
+            background: rgba(0, 0, 0, .5);
+            z-index: 100;
+        }
+
+        .content {
+            display: flex;
+            padding: .5rem 0 .5rem .5rem;
+            background: #eee;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+
+
+        }
+
+        .content_input {
+
+            height: 1.66rem;
+            position: relative;
+        }
+
+        .submit_btn {
+            width: 2.5rem;
+            height: 1.66rem;
+            font-size: .56rem;
+            line-height: 1.66rem;
+            text-align: center;
+            font-weight: 400;
+            color: #333;
+        }
+
+        .content_input input {
+            height: 1.66rem;
+            width: 12rem;
+            -webkit-border-radius: .2rem;
+            -moz-border-radius: .2rem;
+            border-radius: .2rem;
+            text-indent: .56rem;
+            font-size: .56rem;
+            color: #333;
+            -webkit-user-modify: read-write-plaintext-only;
+        }
+
+        .num {
+            position: absolute;
+            right: .2rem;
+            bottom: .2rem;
+            color: darkgrey;
+            font-weight: 400;
+            font-size: .56rem;
+        }
+
+    </style>
+
+</head>
+<body>
+<div id="out">
+    <div class="fin">完成</div>
+    <div class="topbox">
+        <div>
+            <img src="./images/1.jpg" alt="">
+            <div class="mengban">点击替换图片</div>
+        </div>
+        <div>
+            <div class="mengban word">旅行</div>
+        </div>
+    </div>
+    <div class="mina">
+        <div class="lala"><img src="./images/dtpic.png" alt="">
+        </div>
+        <div id="bigimg">
+            <img src="./images/1.jpg" alt="">
+        </div>
+    </div>
+
+    <div class="duan">
+        <img src="images/muico1a.png" alt="">
+        <p>场景</p>
+    </div>
+
+
+    <div class="inputArea">
+        <div class="content">
+            <div class="content_input">
+                <input type="text" maxlength="8" value="旅行">
+                <div class="num"><span class="numLength">2</span>/<span>8</span></div>
+            </div>
+
+            <div class="submit_btn">完成</div>
+        </div>
+    </div>
+
+</div>
+<div class="y_scroll">
+    <div class="window">
+        <div class="scroll">
+            <div class="small"><img class="current" index="0" src="./images/1.jpg" alt=""></div>
+            <div class="small"><img index="1" src="./images/2.jpg" alt=""></div>
+            <div class="small"><img index="2" src="./images/3.jpg" alt=""></div>
+            <div class="small"><img index="3" src="./images/4.jpg" alt=""></div>
+            <div class="small"><img index="4" src="./images/5.jpg" alt=""></div>
+            <div class="small"><img index="5" src="./images/6.jpg" alt=""></div>
+            <div class="small"><img index="6" src="./images/7.jpg" alt=""></div>
+            <div class="small"><img index="7" src="./images/8.jpg" alt=""></div>
+            <div class="small"><img index="8" src="./images/9.jpg" alt=""></div>
+            <div class="small"><img index="9" src="./images/10.jpg" alt=""></div>
+            <div class="small"><img index="10" src="./images/11.jpg" alt=""></div>
+            <div class="small"><img index="11" src="./images/12.jpg" alt=""></div>
+            <div class="small"><img index="12" src="./images/13.jpg" alt=""></div>
+            <div class="small"><img index="13" src="./images/14.jpg" alt=""></div>
+            <div class="small"><img index="14" src="./images/15.jpg" alt=""></div>
+        </div>
+    </div>
+
+
+</div>
+
+<script type="text/javascript" src="js/zepto.js"></script>
+
+<script type="text/javascript" src="https://hsstatic.huashenghaoche.com/wap/plugins/vconsole/vconsole.min.js"></script>
+
+
+<script>
+    new window.VConsole();
+    var wordArray = [
+        "旅行", "风景", "度假", "心境", "迷惑", "摄影", "美照", "艺术", "自拍", "鲜花", "可爱", "清新"
+        , "诱惑", "惬意", "情侣"
+    ]
+
+    var index = 0
+    $('.scroll').on("click", 'img', function () {
+        index = $(this).attr("index")
+        $("#bigimg img").attr("src", $(this).attr('src'))
+        $(".topbox img").attr("src", $(this).attr('src'))
+        $(".current").removeClass("current")
+        $(this).addClass("current")
+        $('.word').html(wordArray[index])
+        $('.content_input input').val(wordArray[index])
+        $(".numLength").text(wordArray[index].length);
+    })
+
+
+    var moveY = ''
+    var startY = ''
+    var lastInstance = 0
+    var maxTopy = $('.topbox').height() + 20
+    var lowTopy = $('.y_scroll')[0].offsetTop - $('.lala').height()
+    var lastMove = 0
+    var startoffset = 0
+
+
+    $('#out').on('touchmove', function (e) {
+        e.preventDefault();
+    })
+
+
+    $('.mina').on("touchstart", function (e) {
+        startY = e.touches[0].clientY
+        startoffset = this.offsetTop
+
+    })
+    $('.mina').on("touchmove", function (e) {
+        e.preventDefault();
+
+        moveY = e.touches[0].clientY - startY
+
+        // 向上移动
+        if (moveY < 0) {
+
+
+            if (maxTopy < startoffset + moveY + lastMove) {
+
+                lastInstance = moveY + lastMove
+                this.style.transform = "translateY(" + lastInstance + "px)";
+            }
+
+            // 向下移动
+        } else if (moveY > 0) {
+
+            if (lowTopy > startoffset + moveY + lastMove) {
+
+                lastInstance = moveY + lastMove
+                this.style.transform = "translateY(" + lastInstance + "px)";
+            }
+
+        }
+
+
+    })
+
+    $('.mina').on("touchend", function (e) {
+        lastMove = lastInstance
+
+    })
+
+
+    //即时搜索 'input propertychange'  限制输入字符
+
+    var val = '旅行'
+    $('.content_input input').on('input propertychange', function (e) {
+        e.stopPropagation();
+        val = $(this).val();
+        var fizeNum = val.length;
+        $(".numLength").text(fizeNum);
+    })
+
+    console.log(document.body.scrollTop)
+    console.log(window.innerHeight)
+
+    $('.content_input input').on("focus", function () {
+
+
+
+
+
+        //软键盘遮住输入框
+            var obj = document.getElementsByClassName('input')[0];
+            var docTouchend = function(event){
+
+                if(event.target!=obj){
+                    setTimeout(function(){
+                        obj.blur();
+                        document.removeEventListener('touchend',docTouchend,false);
+                    },1000);
+
+                };
+            };
+
+            if(obj){
+                obj.addEventListener('touchstart',function(){
+                    document.addEventListener('touchend',docTouchend,false);
+                },false);
+            };
+
+
+
+            $(window).on('resize',function () {
+                console.log(window.innerHeight)
+            })
+
+
+
+
+
+
+
+        $('.content').css({'position': 'fixed', 'bottom': '0'});
+
+        setTimeout(function () {
+            $('.content').css({'position': 'fixed', 'bottom': '0'});
+            console.log(document.body.scrollTop)
+            console.log(window.innerHeight)
+            $('.content').css({'position': 'fixed', 'bottom': 0});
+
+        }, 300)
+
+
+    })
+
+    $('.content_input input').on("blur", function () {
+
+
+        document.body.scrollTop = 0
+        console.log(document.body.scrollTop)
+
+
+    })
+
+
+    $('.submit_btn').on('click', function () {
+        wordArray.splice(index, 1, val)
+        console.log(wordArray)
+        $('.word').html(wordArray[index])
+
+        $('.inputArea').hide()
+    })
+
+    $(".word").on('click', function () {
+        $('.inputArea').show()
+    })
+
+</script>
+
+</body>
+</html>
